@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MENTOR: Mixture-of-Experts Network with Task-Oriented Perturbation for Visual Reinforcement Learning</title>
+<meta name="description" content="Abstract">
+<link rel="stylesheet" href="css/style.css">
+<link rel="canonical" href="https://suninghuang19.github.io/mentor_page">
+<link rel="shortcut icon" href="asset/pic/icon.png"> 
+</head>
+<body>
+
+<main>
+<article class="project">
+<div class="cover">
+<div class="wrapper">
+<h1>MENTOR: Mixture-of-Experts Network with Task-Oriented Perturbation for Visual Reinforcement Learning</h1>
+
+<!-- <!-- <p class="authors"> -->
+  <span class="author">
+    <a target="_blank" href="https://suninghuang19.github.io/">Suning Huang*</a>, 
+    <a target="_blank" href="https://zheyuaqazhang.github.io/">Zheyu Zhang*</a>,
+    <a target="_blank" href="https://tinhal.github.io/">Tianhai Liang</a>,
+    <a target="_blank" href="https://suninghuang19.github.io/mentor_page">Yihan Xu</a>,
+    <a target="_blank" href="https://suninghuang19.github.io/mentor_page">Zhehao Kou</a>,
+    <a target="_blank" href="https://suninghuang19.github.io/mentor_page">Chenhao Lu</a>,
+    <a target="_blank" href="https://xugw-kevin.github.io/">Guowei Xu</a>,
+    <a target="_blank" href="https://steven-xzr.github.io/">Zhengrong Xue</a>,
+    <a target="_blank" href="https://hxu.rocks/">Huazhe Xu</a>
+  </span>
+  <p>* Equal contributions</p>
+
+<!-- <p class="venues"></p> -->
+
+<p class="buttons">
+  <a href="https://arxiv.org/abs" target="_blank">Paper</a>
+  <a href="https://suninghuang19.github.io/mentor_page" target="_blank">Code(Coming soon)</a>
+  </p>
+
+</div>
+</div>
+
+<div class="content wrapper">
+  
+<h2 id="abstract">Abstract</h2>
+<p>Visual deep reinforcement learning (RL) enables robots to acquire skills from visual input for unstructured tasks. However, current algorithms suffer from low sample efficiency, limiting their practical applicability. In this work, we present MENTOR, a method that improves <strong>both the <em>architecture</em> and <em>optimization</em></strong> of RL agents. Specifically, MENTOR replaces the standard multi-layer perceptron (MLP) with a mixture-of-experts (MoE) backbone, enhancing the agent's ability to handle complex tasks by leveraging modular expert learning to avoid gradient conflicts. Furthermore, MENTOR introduces a task-oriented perturbation mechanism, which heuristically samples perturbation candidates containing task-relevant information, leading to more targeted and effective optimization. MENTOR outperforms state-of-the-art methods across three simulation domains---DeepMind Control Suite, Meta-World, and Adroit. Additionally, MENTOR achieves an average of 83% success rate on three challenging real-world robotic manipulation tasks including Peg Insertion, Cable Routing, and Tabletop Golf, which significantly surpasses the success rate of 32% from the current strongest model-free visual RL algorithm. These results underscore the importance of sample efficiency in advancing visual RL for real-world robotics. </p>
+
+
+<h2 id="method">Method</h2>
+<p style="text-align: center">
+  <img style="width: 100%" src="asset/pic/model.png" />
+  </p>
+<p>MENTOR includes two key enhancements, aimed at improving sample efficiency and overall performance in visual RL tasks. The first enhancement addresses the issue of low sample efficiency caused by gradient conflicts in challenging scenarios, achieved by adopting an MoE structure in place of the traditional MLP as the agent backbone. The second enhancement introduces a task-oriented perturbation mechanism that optimizes the agent's training through targeted perturbations, effectively balancing exploration and exploitation. The overview of the MENTOR architecture is shown in the figure above. </p>
+
+
+<h2 id="results">Results</h2>
+<p style="text-align: center">
+  <img style="width: 100%" src="asset/pic/results_1.png" />
+  </p>
+  <ul>
+    <li>MENTOR outperforms leading model-free visual RL methods on 12 challenging tasks across three simulation domains---DeepMind Control Suite, Meta-World, and Adroit.</li>
+  </ul>  
+  <img style="width: 100%" src="asset/pic/results_2.png" />
+  </p>
+  <ul>
+    <li>MENTOR can be successfully and efficiently trained in real-world RL settings <strong>without any expert demonstrations and solely using RGB images as policy input</strong>, achieving an average of 83% success rate on three complex robotic manipulation tasks including Peg Insertion, Cable Routing, and Tabletop Golf, which significantly surpasses the success rate of 32% from the current strongest model-free visual RL algorithm (DrM).</li>
+  </ul>  
+
+
+<h2 id="highlights" style="color: red;">Highlights</h2>
+<p style="text-align: center">
+  </p>
+<p> In this section, we present the whole training and evaluation videos of MENTOR on the real-world robotic manipulation tasks, which demonstrates the effectiveness of MENTOR in achieving high success rates and high robustness on challenging tasks. More quantitative results can be found in the paper</a>. </p>
+
+<!-- Peg Insertion -->
+<!-- Training video and Evaluation Videos (seperate youtube link) -->
+<h3>Peg Insertion</h3>
+<p style="text-align: center">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/zbN7NnGTPGg?si=NM5CZS6lVgteASp3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </p>
+<p>Training video of MENTOR on the Peg Insertion task.</p>
+<p style="text-align: center">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/fD2D962uuqQ?si=28gipmqAw4jaAxEt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </p>
+<p>Evaluation video of MENTOR on the Peg Insertion task.</p>
+
+<!-- Cable Routing -->
+<!-- Training video and Evaluation Videos (seperate youtube link) -->
+<h3>Cable Routing</h3>
+<p style="text-align: center">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/qBv0J17j-F0?si=hSMFb6b6KC_m1dwd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </p>
+<p>Training video of MENTOR on the Cable Routing task.</p>
+<p style="text-align: center">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/gSqYlo0NQvc?si=BV-vJUSvbd5XVayc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </p>
+<p>Evaluation video of MENTOR on the Cable Routing task.</p>
+
+<!-- Tabletop Golf -->
+<!-- Training video and Evaluation Videos (seperate youtube link) -->
+<h3>Tabletop Golf</h3>
+<p style="text-align: center">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/P5T0rll0F1M?si=6j5TdRqJQQzKPfq_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </p>
+<p>Training video of MENTOR on the Tabletop Golf task.</p>
+<p style="text-align: center">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/4NYDSciMA-U?si=psF7Ct9FCi9Xknk6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </p>
+<p>Evaluation video of MENTOR on the Tabletop Golf task.</p>
+
+
+</div>
+</article>
+
+<script>
+  document.querySelector('body').onload = function() {
+    console.log('SCROLL', window.scrollY);
+    if (window.scrollY > 10) return;
+    const element = document.querySelector('.cover')
+    const pos = element.getBoundingClientRect().top + window.scrollY
+    window.scroll({top: pos, behavior: 'smooth'})
+  }
+  </script>
+  </main>
+  <footer></footer>
+  <script async src='/scripts.js'></script>
+  </body>
+  
+</html>
