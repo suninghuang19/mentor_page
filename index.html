@@ -7,7 +7,7 @@
 <title>MENTOR: Mixture-of-Experts Network with Task-Oriented Perturbation for Visual Reinforcement Learning</title>
 <meta name="description" content="Abstract">
 <link rel="stylesheet" href="css/style.css">
-<link rel="canonical" href="https://suninghuang19.github.io/mentor_page">
+<link rel="canonical" href="https://mentor-vrl.github.io/">
 <link rel="shortcut icon" href="asset/pic/icon.png"> 
 </head>
 <body>
@@ -32,7 +32,7 @@
   </span>
   <p>* Equal contributions</p>
 
-<!-- <p class="venues"></p> -->
+<p class="venues">ICML 2025</p>
 
 <p class="buttons">
   <a href="https://arxiv.org/abs/2410.14972" target="_blank">Paper</a>
@@ -44,7 +44,8 @@
 </div>
 
 <div class="content wrapper">
-  
+
+
 <h2 id="abstract">Abstract</h2>
 <p>Visual deep reinforcement learning (RL) enables robots to acquire skills from visual input for unstructured tasks. However, current algorithms suffer from low sample efficiency, limiting their practical applicability. In this work, we present MENTOR, a method that improves <strong>both the <em>architecture</em> and <em>optimization</em></strong> of RL agents. Specifically, MENTOR replaces the standard multi-layer perceptron (MLP) with a mixture-of-experts (MoE) backbone, enhancing the agent's ability to handle complex tasks by leveraging modular expert learning to avoid gradient conflicts. Furthermore, MENTOR introduces a task-oriented perturbation mechanism, which heuristically samples perturbation candidates containing task-relevant information, leading to more targeted and effective optimization. MENTOR outperforms state-of-the-art methods across three simulation domains---DeepMind Control Suite, Meta-World, and Adroit. Additionally, MENTOR achieves an average of 83% success rate on three challenging real-world robotic manipulation tasks including Peg Insertion, Cable Routing, and Tabletop Golf, which significantly surpasses the success rate of 32% from the current strongest model-free visual RL algorithm. These results underscore the importance of sample efficiency in advancing visual RL for real-world robotics. </p>
 
@@ -110,6 +111,41 @@
   <iframe width="560" height="315" src="https://www.youtube.com/embed/4NYDSciMA-U?si=psF7Ct9FCi9Xknk6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </p>
 <p>Evaluation video of MENTOR on the Tabletop Golf task.</p>
+
+
+<h2 id="ablation">Appendix</h2>
+<h3 id="ablation">Technical Contribution Ablation Study</h3>
+
+<p style="text-align: center">
+  <img style="width: 100%" src="asset/pic/results_3.png" />
+  </p>
+  <ul>
+    <li>We conducted additional ablation studies on four diverse tasks: Hopper Hop, Disassemble, Coffee-Push (Sparse), and Hammer (Sparse). These studies aim to decouple the effects of the MoE architecture and the Task-oriented Perturbation (TP) mechanism proposed in our paper.</li>
+  </ul>  
+  <img style="width: 100%" src="asset/pic/results_4.png" />
+  </p>
+  <ul>
+    <li>The table shows the normalized sample efficiency of each setting. MENTOR (Ours) achieves an average of <strong>22.6%</strong> and <strong>26.1%</strong> less training time over the 4 tasks compared with MENTOR_w/o_TP and MENTOR_w/o_MoE.</li>
+  </ul>  
+
+  <h3>Multi-Task Experiment Results</h3>
+
+  <p>To further demonstrate the multi-task capabilities of MoE, we conducted additional multitask learning experiments on Meta-World. In these experiments, we used four task combinations, consisting of 3, 4, 5, and 7 tasks, respectively. The figure below shows the evaluation accuracy during training. In this experiment, neither MENTOR nor DrM used perturbation, with the only difference being the use of MoE versus MLP.</p>
+  
+  <p style="text-align: center">
+    <embed src="asset/pic/mt_result.png" width="100%"/>
+  </p>
+  
+  <h3>Mixture-of-Experts Hyperparameter Ablation Study</h3>
+  
+  <div style="display: flex; align-items: center;">
+    <div style="flex: 1;">
+      <img src="asset/pic/moe_hyper.png" style="width: 100%;" alt="MoE Hyperparameter Visualization">
+    </div>
+    <div style="flex: 1; padding-left: 20px;">
+      <p><strong>Figure:</strong> Visualization of MoE hyperparameters and their impact on performance. Results show that while the optimal setting is MoE has 8 experts, performance remains consistent across 4, 8, and 32 experts as long as top_k = 4.</p>
+    </div>
+  </div>
 
 
 </div>
